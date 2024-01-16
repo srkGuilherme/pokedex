@@ -1,38 +1,278 @@
+@import url("https://fonts.googleapis.com/css2?family=Rubik&display=swap");
 .App {
+  overflow: hidden;
+  width: 100%;
+}
+* {
+  font-family: Rubik;
+}
+
+.Header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 50px;
+  background-color: red;
+}
+
+.Header div {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin: 15px;
+}
+
+.Logo {
+  height: 30px;
+}
+
+.Header input {
+  box-sizing: border-box;
+  height: 30px;
+  width: 200px;
+  border-radius: 30px;
+  border: none;
+  padding: 0px 20px;
+  transition: 0.3s;
+}
+
+.Header input:hover {
+  width: 250px;
+  transition: 0.2s;
+  height: 35px;
+}
+.HeaderList {
+  list-style-type: none;
+  display: flex;
+}
+
+.HeaderList li {
+  margin: 20px;
+}
+
+.CarouselBox {
+  overflow: hidden !important;
+  position: relative;
+}
+
+.Carousel {
+  cursor: grab;
+  width: 100%;
+}
+
+.CarouselCard {
+  padding: 5px 5px 10px 5px;
+  background: rgb(232, 238, 232);
+  width: 200px;
+  margin: 10px;
+  border-radius: 15px;
+  text-transform: capitalize;
+  height: 320px;
+}
+
+.CarouselImages {
+  top: 0px;
+  left: 0px;
+  width: 200px;
+  height: 300px;
+  display: flex;
+  align-items: center;
+}
+
+.CarouselImages img {
+  position: absolute;
+  height: 200px;
+  width: 200px;
+}
+.CarouselImages img:hover {
+  position: absolute;
+  height: 200px;
+  width: 200px;
+}
+
+.CarouselPokemonImage {
+  transition: 1s;
+}
+
+.CarouselPokemonImage:hover {
+  transform: scale(1.3);
+  transition: 0.5s;
+}
+
+.CarouselBackground {
+  border-radius: 15px;
+  height: 300px !important;
+}
+.CarouselPokemonName {
+  display: flex;
+  justify-content: center;
   text-align: center;
+  width: 100%;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.Inner {
+  display: flex;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.Grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.PokemonList {
+  width: 100%;
+  list-style-type: none;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  margin: auto;
+  padding: 0px 10px;
+}
+
+.PokemonCard {
+  background-color: rgb(241, 241, 241);
+  width: 200px;
+  height: 250px;
+  margin: 15px 15px;
+  border-radius: 15px;
+  padding: 10px;
+  display: flex;
+  align-items: stretch;
+  justify-content: space-between;
+  transition: 0.2s;
+}
+
+.PokemonCard:hover {
+  height: 260px;
+  margin: 15px 15px 0px 15px;
+  transition: 0.1s;
+}
+
+.PokemonCard a {
+  text-decoration: none;
+}
+.PokemonCard a:visited {
+  color: black;
+}
+
+.CardContent {
+  height: 100%;
   display: flex;
   flex-direction: column;
+}
+
+.PokemonImage {
+  height: 200px;
+  width: 200px;
+  background-color: white;
+  margin: auto;
+  border-radius: 10px;
+  display: flex;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.PokemonImage img {
+  height: 150px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.PokemonName {
+  align-items: center;
+  text-align: center;
+  margin: 5px;
+  padding: 5px;
+  text-transform: capitalize;
+}
+
+.PokemonCard ul {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px;
+}
+
+.PokemonCard li {
+  list-style: none;
+  width: 35px;
+  height: 35px;
+  border-radius: 35px;
+  background-color: rgb(255, 255, 255);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.Types {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.Type {
+  background-color: gray;
+  width: 80px;
+  height: 30px;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 2px;
+  text-transform: capitalize;
+}
+
+.Typenormal {
+  background-color: rgba(194, 186, 177, 255);
+}
+
+.Typegrass {
+  background-color: rgba(102, 184, 44, 255);
+}
+.Typepoison {
+  background-color: rgba(145, 68, 147, 255);
+}
+.Typefire {
+  background-color: rgba(223, 53, 8, 255);
+}
+.Typeflying {
+  background-color: rgba(126, 147, 231, 255);
+}
+.Typewater {
+  background-color: rgb(95, 204, 255);
+}
+.Typebug {
+  background-color: rgba(171, 186, 33, 255);
+}
+.Typeelectric {
+  background-color: rgba(245, 175, 21, 255);
+}
+.Typeground {
+  background-color: rgb(165, 91, 42);
+}
+.Typefairy {
+  background-color: rgba(240, 166, 241, 255);
+}
+.Typedark {
+  background-color: rgba(80, 61, 47, 255);
+}
+.Typedragon {
+  background-color: rgba(102, 81, 193, 255);
+}
+.Typeghost {
+  background-color: rgba(92, 92, 172, 255);
+}
+.Typeice {
+  background-color: rgba(144, 226, 253, 255);
+}
+.Typepsychic {
+  background-color: rgba(232, 63, 120, 255);
+}
+.Typerock {
+  background-color: rgba(173, 151, 76, 255);
+}
+.Typesteel {
+  background-color: rgba(166, 166, 182, 255);
+}
+.Typefighting {
+  background-color: rgba(119, 47, 28, 255);
 }
