@@ -26,88 +26,49 @@
   height: 30px;
 }
 
-.Header input {
-  box-sizing: border-box;
-  height: 30px;
-  width: 200px;
-  border-radius: 30px;
-  border: none;
-  padding: 0px 20px;
-  transition: 0.3s;
-}
-
-.Header input:hover {
-  width: 250px;
-  transition: 0.2s;
-  height: 35px;
-}
-.HeaderList {
-  list-style-type: none;
-  display: flex;
-}
-
-.HeaderList li {
-  margin: 20px;
-}
-
-.CarouselBox {
-  overflow: hidden !important;
-  position: relative;
-}
-
-.Carousel {
-  cursor: grab;
-  width: 100%;
-}
-
-.CarouselCard {
-  padding: 5px 5px 10px 5px;
-  background: rgb(232, 238, 232);
-  width: 200px;
-  margin: 10px;
-  border-radius: 15px;
-  text-transform: capitalize;
-  height: 320px;
-}
-
-.CarouselImages {
-  top: 0px;
-  left: 0px;
-  width: 200px;
-  height: 300px;
+.SetupSettings {
+  height: 50px;
+  box-shadow: inset 0px -57px 115px -2px rgb(240, 240, 240);
+  border-bottom: 1px solid #d4d4d4;
   display: flex;
   align-items: center;
+  justify-content: space-between;
 }
 
-.CarouselImages img {
-  position: absolute;
-  height: 200px;
-  width: 200px;
-}
-.CarouselImages img:hover {
-  position: absolute;
-  height: 200px;
-  width: 200px;
-}
-
-.CarouselPokemonImage {
-  transition: 1s;
-}
-
-.CarouselPokemonImage:hover {
-  transform: scale(1.3);
-  transition: 0.5s;
-}
-
-.CarouselBackground {
-  border-radius: 15px;
-  height: 300px !important;
-}
-.CarouselPokemonName {
+.PokemonsQuantitySetup {
   display: flex;
-  justify-content: center;
-  text-align: center;
-  width: 100%;
+  justify-content: left;
+  align-items: center;
+  height: 50px;
+}
+.PokemonsQuantitySetupChild {
+  margin: 0px 10px;
+  padding: 5px;
+  border-radius: 5px;
+  border: 0px solid;
+}
+
+.PokemonsQuantitySetup > input:focus {
+  border: 0px;
+}
+
+.PokemonsQuantitySetup > button {
+  background-color: rgb(255, 0, 0);
+  color: white;
+  font-style: bold;
+  width: 30px;
+  height: 30px;
+}
+
+.PokemonsQuantitySetup > button:hover {
+  cursor: pointer;
+}
+
+.PokemonsFilterSetup ul {
+  display: flex;
+  list-style-type: none;
+}
+.PokemonsFilterSetup li {
 }
 
 .Inner {
