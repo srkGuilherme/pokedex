@@ -24,18 +24,19 @@ function Pokemons() {
   };
 
   const handleFilter = (event) => {
-    const value = event.target.name;
+    const value = event.target.value;
+    console.log(value);
 
-    if (event.target.checked) {
+    if (value == "todos") {
+      getPokemons();
+    } else {
+      getPokemons();
       const filtered = pokemons.filter((pokemon) => {
         const allTypes = pokemon.data.types.map((type) => type.type.name);
-        console.log(allTypes);
         return allTypes.includes(value);
       });
 
       setPokemons(filtered);
-    } else {
-      getPokemons();
     }
   };
 
@@ -43,7 +44,7 @@ function Pokemons() {
     PokemonsQuantity = Number(event.target.value) + 1;
     getPokemons();
   };
-  console.log(pokemons);
+
   return (
     <div>
       <div>
@@ -71,152 +72,65 @@ function Pokemons() {
             </button>
           </div>
           <div className="PokemonsFilterSetup">
-            <ul>
-              <li>
-                <input
-                  type="checkbox"
-                  name="normal"
-                  onClick={handleFilter}
-                ></input>
-                <label for="normal">Normal</label>
-              </li>
-              <li>
-                <input
-                  type="checkbox"
-                  name="grass"
-                  onClick={handleFilter}
-                ></input>
-                <label for="grass">Grass</label>
-              </li>
-              <li>
-                <input
-                  type="checkbox"
-                  name="poison"
-                  onClick={handleFilter}
-                ></input>
-                <label for="poison">Poison</label>
-              </li>
-              <li>
-                <input
-                  type="checkbox"
-                  name="fire"
-                  onClick={handleFilter}
-                ></input>
-                <label for="fire">Fire</label>
-              </li>
-              <li>
-                <input
-                  type="checkbox"
-                  name="flying"
-                  onClick={handleFilter}
-                ></input>
-                <label for="flying">Flying</label>
-              </li>
-              <li>
-                <input
-                  type="checkbox"
-                  name="water"
-                  onClick={handleFilter}
-                ></input>
-                <label for="water">Water</label>
-              </li>
-              <li>
-                <input
-                  type="checkbox"
-                  name="bug"
-                  onClick={handleFilter}
-                ></input>
-                <label for="bug">Bug</label>
-              </li>
-              <li>
-                <input
-                  type="checkbox"
-                  name="electric"
-                  onClick={handleFilter}
-                ></input>
-                <label for="electric">Electric</label>
-              </li>
-              <li>
-                <input
-                  type="checkbox"
-                  name="ground"
-                  onClick={handleFilter}
-                ></input>
-                <label for="ground">Ground</label>
-              </li>
-              <li>
-                <input
-                  type="checkbox"
-                  name="fairy"
-                  onClick={handleFilter}
-                ></input>
-                <label for="fairy">Fairy</label>
-              </li>
-              <li>
-                <input
-                  type="checkbox"
-                  name="dark"
-                  onClick={handleFilter}
-                ></input>
-                <label for="dark">Dark</label>
-              </li>
-              <li>
-                <input
-                  type="checkbox"
-                  name="dragon"
-                  onClick={handleFilter}
-                ></input>
-                <label for="dragon">Dragon</label>
-              </li>
-              <li>
-                <input
-                  type="checkbox"
-                  name="ghost"
-                  onClick={handleFilter}
-                ></input>
-                <label for="ghost">Ghost</label>
-              </li>
-              <li>
-                <input
-                  type="checkbox"
-                  name="ice"
-                  onClick={handleFilter}
-                ></input>
-                <label for="ice">Ice</label>
-              </li>
-              <li>
-                <input
-                  type="checkbox"
-                  name="psychic"
-                  onClick={handleFilter}
-                ></input>
-                <label for="psychic">Psychic</label>
-              </li>
-              <li>
-                <input
-                  type="checkbox"
-                  name="rock"
-                  onClick={handleFilter}
-                ></input>
-                <label for="rock">Rock</label>
-              </li>
-              <li>
-                <input
-                  type="checkbox"
-                  name="steel"
-                  onClick={handleFilter}
-                ></input>
-                <label for="steel">Steel</label>
-              </li>
-              <li>
-                <input
-                  type="checkbox"
-                  name="fighting"
-                  onClick={handleFilter}
-                ></input>
-                <label for="fighting">Fighting</label>
-              </li>
-            </ul>
+            <select name="types" onChange={handleFilter}>
+              <option value="todos" name="todos">
+                Todos
+              </option>
+              <option value="normal" name="normal">
+                Normal
+              </option>
+              <option value="grass" name="grass">
+                Grass
+              </option>
+              <option value="poison" name="poison">
+                Poison
+              </option>
+              <option value="fire" name="fire">
+                Fire
+              </option>
+              <option value="flying" name="flying">
+                Flying
+              </option>
+              <option value="water" name="water">
+                Water
+              </option>
+              <option value="bug" name="bug">
+                Bug
+              </option>
+              <option value="electric" name="electric">
+                Electric
+              </option>
+              <option value="ground" name="ground">
+                Ground
+              </option>
+              <option value="fairy" name="fairy">
+                Fairy
+              </option>
+              <option value="dark" name="dark">
+                Dark
+              </option>
+              <option value="dragon" name="dragon">
+                Dragon
+              </option>
+              <option value="ghost" name="ghost">
+                Ghost
+              </option>
+              <option value="ice" name="ice">
+                Ice
+              </option>
+              <option value="psychic" name="psychic">
+                Psychic
+              </option>
+              <option value="rock" name="rock">
+                Rock
+              </option>
+              <option value="steel" name="steel">
+                Steel
+              </option>
+              <option value="fighting" name="fighting">
+                Fighting
+              </option>
+            </select>
           </div>
         </div>
       </div>
