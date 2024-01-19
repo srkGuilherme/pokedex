@@ -4,45 +4,59 @@ import PokemonCard from "../../components/PokemonCard";
 
 function Pokemons() {
   const [pokemons, setPokemons] = useState([]);
+  const [renderedPokemons, setRenderedPokemons] = useState([]);
 
-  var PokemonsQuantity = 100;
-
-  useEffect(() => {
-    getPokemons();
-  }, []);
-
-  const getPokemons = () => {
-    var endpoints = [];
+  const handleQuantityUpdate = () => {
+    var renderLoading = [];
     for (var i = 1; i < PokemonsQuantity; i++) {
-      endpoints.push("https://pokeapi.co/api/v2/pokemon/" + i);
+      renderLoading.push(pokemons[i - 1]);
     }
 
-    var response = axios
-      .all(endpoints.map((endpoint) => axios.get(endpoint)))
-      .then((res) => setPokemons(res));
-    return response;
+    setRenderedPokemons(renderLoading);
   };
+
+  var PokemonsQuantity = 6;
+
+  const maxRenderAPI = 500;
+
+  useEffect(() => {
+    async function getPokemons() {
+      var endpoints = [];
+      for (var i = 1; i < maxRenderAPI; i++) {
+        endpoints.push("https://pokeapi.co/api/v2/pokemon/" + i);
+      }
+
+      var response = await axios
+        .all(endpoints.map((endpoint) => axios.get(endpoint)))
+        .then((res) => {
+          setPokemons(res);
+          setTimeout(() => {
+            setRenderedPokemons(pokemons);
+          }, 200);
+        });
+
+      return response;
+    }
+    getPokemons();
+  }, []); //
 
   const handleFilter = (event) => {
     const value = event.target.value;
-    console.log(value);
 
     if (value == "todos") {
-      getPokemons();
+      setRenderedPokemons(pokemons);
     } else {
-      getPokemons();
       const filtered = pokemons.filter((pokemon) => {
         const allTypes = pokemon.data.types.map((type) => type.type.name);
         return allTypes.includes(value);
       });
-
-      setPokemons(filtered);
+      setRenderedPokemons(filtered);
     }
   };
 
   const pokemonQuantityUpdade = (event) => {
     PokemonsQuantity = Number(event.target.value) + 1;
-    getPokemons();
+    handleQuantityUpdate();
   };
 
   return (
@@ -51,24 +65,44 @@ function Pokemons() {
         <div className="SetupSettings">
           <div className="PokemonsQuantitySetup">
             <span className="PokemonsQuantitySetupChild">
-              Quantidade de Pokemons:
+              Pokémons na página:
             </span>
-            <input
-              className="PokemonsQuantitySetupChild"
-              type="number"
-              placeholder="100"
-              min={1}
-              max={100000}
-              onChange={pokemonQuantityUpdade}
-            ></input>
+
             <button
-              className="PokemonsQuantitySetupChild"
-              onClick={() => {
-                PokemonsQuantity = 100;
-                getPokemons();
-              }}
+              className="QuantityButton"
+              value={25}
+              onClick={pokemonQuantityUpdade}
             >
-              X
+              25
+            </button>
+            <button
+              className="QuantityButton"
+              value={50}
+              onClick={pokemonQuantityUpdade}
+            >
+              50
+            </button>
+            <button
+              className="QuantityButton"
+              value={100}
+              onClick={pokemonQuantityUpdade}
+            >
+              100
+            </button>
+            <button
+              className="QuantityButton"
+              value={250}
+              onClick={pokemonQuantityUpdade}
+            >
+              250
+            </button>
+
+            <button
+              className="QuantityButton"
+              value={maxRenderAPI - 1}
+              onClick={pokemonQuantityUpdade}
+            >
+              {maxRenderAPI}
             </button>
           </div>
           <div className="PokemonsFilterSetup">
@@ -136,7 +170,7 @@ function Pokemons() {
       </div>
       <div>
         <div className="Grid">
-          {pokemons.map((pokemon, key, image, types) => (
+          {renderedPokemons.map((pokemon, key, image, types) => (
             <PokemonCard
               image={pokemon.data.sprites.front_default}
               key={key}

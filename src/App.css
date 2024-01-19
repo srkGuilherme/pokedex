@@ -32,7 +32,7 @@
   border-bottom: 1px solid #d4d4d4;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: space-evenly;
 }
 
 .PokemonsQuantitySetup {
@@ -48,27 +48,37 @@
   border: 0px solid;
 }
 
-.PokemonsQuantitySetup > input:focus {
-  border: 0px;
-}
-
 .PokemonsQuantitySetup > button {
-  background-color: rgb(255, 0, 0);
-  color: white;
+  background-color: rgb(255, 255, 255);
+  border: 1px solid lightgray;
+  color: rgb(0, 0, 0);
   font-style: bold;
-  width: 30px;
+  width: 40px;
   height: 30px;
+  margin: 3px;
 }
 
 .PokemonsQuantitySetup > button:hover {
   cursor: pointer;
 }
-
-.PokemonsFilterSetup ul {
-  display: flex;
-  list-style-type: none;
+.QuantityButton {
+  border-radius: 5px;
+  border: 1px solid lightgray;
+  text-align: center;
+  justify-content: center;
+  margin: auto;
 }
-.PokemonsFilterSetup li {
+
+.PokemonsFilterSetup {
+  position: relative;
+  font-family: Arial;
+}
+
+.PokemonsFilterSetup select {
+  width: 90px;
+  height: 30px;
+  border-color: lightgray;
+  border-radius: 5px;
 }
 
 .Inner {
