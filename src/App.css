@@ -27,25 +27,22 @@
 }
 
 .SetupSettings {
-  height: 50px;
+  position: absolute;
+  left: 0px;
   box-shadow: inset 0px -57px 115px -2px rgb(240, 240, 240);
   border-bottom: 1px solid #d4d4d4;
   display: flex;
-  align-items: center;
-  justify-content: space-evenly;
+  flex-direction: column;
+  height: 100%;
+  width: 80px;
+  margin: auto;
 }
 
 .PokemonsQuantitySetup {
   display: flex;
   justify-content: left;
+  flex-direction: column;
   align-items: center;
-  height: 50px;
-}
-.PokemonsQuantitySetupChild {
-  margin: 0px 10px;
-  padding: 5px;
-  border-radius: 5px;
-  border: 0px solid;
 }
 
 .PokemonsQuantitySetup > button {
@@ -72,10 +69,12 @@
 .PokemonsFilterSetup {
   position: relative;
   font-family: Arial;
+  text-align: center;
 }
 
 .PokemonsFilterSetup select {
-  width: 90px;
+  width: 80%;
+  min-width: 60px;
   height: 30px;
   border-color: lightgray;
   border-radius: 5px;
